@@ -3,6 +3,7 @@ header {
   justify-content: space-between;
 
   padding: 10px;
+  background-color: rgb(218, 218, 218);
 }
 
 label {
@@ -32,4 +33,20 @@ h3 {
   translate: -50% -50%;
   top: 50%;
   left: 50%;
+}
+
+.pet-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.pet-list__pet-item {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 10px;
+}
+
+.pet-item__infos {
+  display: flex;
 }
