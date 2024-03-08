@@ -3,7 +3,7 @@ function createPetElement(pet) {
 
   const petElement = document.createElement("div");
   petElement.innerHTML = `
-    <div class="pet-list__pet-item">
+    <li class="pet-list__pet-item">
       <div class="pet-item__infos">
         <span>${name}</span>
         <span>${owner_contact}</span>
@@ -13,7 +13,7 @@ function createPetElement(pet) {
         <button>edit</button>
         <button>delete</button>
       </div>
-    </div>`;
+    </li>`;
 
   return petElement;
 }
