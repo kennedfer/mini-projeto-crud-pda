@@ -6,8 +6,8 @@ function createPetElement(pet) {
   petElement.innerHTML = `
       <div class="pet-item__infos">
         <span>${name}</span>
-        <span>${owner_contact}</span>
-        <span>${type}</span>
+        <span class="infos__light-text" >${owner_contact}</span>
+        <span class="infos__light-text">${type}</span>
       </div>
       <div class="pet-item__mod-buttons">
         <button class="button   is-info" onclick="editPetClickHandler(this)">Editar</button>
@@ -90,7 +90,7 @@ function resetElementAnimation(element) {
 }
 
 function showNewPetPopup() {
-  newPetPopup.style.display = "";
+  newPetPopup.style.display = "grid";
 
   newPetPopup.style.animation = "show-popup .25s forwards";
   resetElementAnimation(newPetPopup);
