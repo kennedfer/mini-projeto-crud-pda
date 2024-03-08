@@ -36,7 +36,9 @@ function removePetClickHandler(deleteButton) {
   if (canDelete) {
     const petElement = deleteButton.parentElement.parentElement;
     petList.removeChild(petElement);
-    pets.slice(petElement.id);
+    pets.splice(petElement.id, 1);
+
+    console.log(pets);
   }
 }
 
