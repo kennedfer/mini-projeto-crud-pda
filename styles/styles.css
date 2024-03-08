@@ -118,6 +118,10 @@ label {
     padding: 10px;
   }
 
+  .mobile-button {
+    padding: 10px;
+  }
+
   .no-mobile-button {
     display: none;
   }
