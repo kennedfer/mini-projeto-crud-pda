@@ -2,7 +2,7 @@ header {
   display: flex;
   justify-content: space-between;
 
-  padding: 10px;
+  padding: 20px;
   background-color: rgb(243, 243, 243);
 }
 
@@ -13,6 +13,7 @@ label {
 
 h1 {
   font-size: larger;
+  margin-top: 5px;
 }
 
 h3 {
@@ -57,10 +58,13 @@ h3 {
 }
 
 .pet-item__infos {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  /* display: grid; */
+  /* grid-template-columns: 1fr 1fr 1fr; */
   flex-grow: 1;
 
+  display: flex;
+
+  overflow: scroll;
   place-items: center;
 }
 
@@ -72,6 +76,13 @@ h3 {
 .pet-item__mod-buttons {
   display: flex;
   gap: 15px;
+}
+
+.mobile-button {
+  position: absolute;
+
+  bottom: 0px;
+  width: 100%;
 }
 
 @keyframes show-popup {
@@ -91,5 +102,28 @@ h3 {
 
   100% {
     opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .no-mobile-button {
+    display: none;
+  }
+
+  h1 {
+    text-align: center;
+    width: 100%;
+
+    margin: 0;
+  }
+
+  header {
+    padding: 10px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile-button {
+    display: none;
   }
 }
