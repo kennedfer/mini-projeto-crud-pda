@@ -48,7 +48,7 @@ label {
   display: flex;
   padding: 10px;
 
-  gap: 10px;
+  gap: 5px;
 }
 
 .pet-list__pet-item:nth-child(2n) {
@@ -72,7 +72,7 @@ label {
 
 .pet-item__mod-buttons {
   display: flex;
-  gap: 15px;
+  gap: 10px;
 }
 
 .infos__light-text {
@@ -116,6 +116,11 @@ label {
 
   header {
     padding: 10px;
+  }
+
+  .pet-item__mod-buttons {
+    display: flex;
+    gap: 5px;
   }
 
   .mobile-button {
