@@ -7,7 +7,8 @@ header {
 }
 
 label {
-  margin-bottom: -5px;
+  margin-bottom: -3px;
+  font-size: small;
 }
 
 h1 {
@@ -22,9 +23,9 @@ h3 {
   display: grid;
   gap: 10px;
 
-  background-color: rgb(188, 188, 188);
+  background-color: white;
 
-  padding: 10px;
+  padding: 20px;
   width: 300px;
   height: auto;
 
@@ -42,23 +43,35 @@ h3 {
 .pet-list {
   display: flex;
   flex-direction: column;
+
+  margin-top: 10px;
 }
 
 .pet-list__pet-item {
   display: flex;
-
   padding: 10px;
+}
+
+.pet-list__pet-item:nth-child(2n) {
+  background-color: rgb(250, 250, 250);
 }
 
 .pet-item__infos {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   flex-grow: 1;
+
+  place-items: center;
 }
 
 .pet-item__infos > span {
   flex-grow: 1;
   text-align: center;
+}
+
+.pet-item__mod-buttons {
+  display: flex;
+  gap: 15px;
 }
 
 @keyframes show-popup {

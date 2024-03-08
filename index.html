@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body>
-    <header>
+    <header class="card">
       <h1>Meus PetAmigos</h1>
       <div>
         <button
-          class="button is-primary is-light"
+          class="button is-outlined is-primary"
           onclick="addNewPetClickHandler()"
         >
           Adicionar novo PetAmigo
@@ -28,22 +28,39 @@
     <main>
       <ul id="pet-list" class="pet-list"></ul>
     </main>
-    <div id="new-pet-popup" class="new-pet-popup">
+    <div class="new-pet-popup card" id="new-pet-popup">
       <h3 id="new-pet-popup__title">Novo PetAmigo</h3>
       <label for="new-pet-popup__name">Nome do pet:</label>
-      <input type="text" name="" id="new-pet-popup__name" />
+      <input
+        class="input is-small"
+        type="text"
+        name=""
+        id="new-pet-popup__name"
+      />
 
       <label for="new-pet-popup__owner-contact">Contato do Dono:</label>
-      <input type="number" name="" id="new-pet-popup__owner-contact" />
+      <input
+        class="input is-small"
+        type="tel"
+        pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+        name="new-pet-popup__owner-contact"
+        id="new-pet-popup__owner-contact"
+      />
 
       <label for="new-pet-popup__type">Tipo de pet:</label>
-      <select name="new-pet-popup__type" id="new-pet-popup__type">
+      <select
+        class="select is-primary"
+        name="new-pet-popup__type"
+        id="new-pet-popup__type"
+      >
         <option value="Cachorro">Cachorro</option>
         <option value="Gato">Gato</option>
         <option value="Roedor">Roedor</option>
         <option value="Pássaro">Pássaro</option>
       </select>
-      <button id="new-pet-popup__add-pet">Adicionar</button>
+      <button class="button is-primary" id="new-pet-popup__add-pet">
+        Adicionar
+      </button>
     </div>
 
     <script src="scripts/script.js"></script>

@@ -10,7 +10,7 @@ function createPetElement(pet) {
         <span>${type}</span>
       </div>
       <div class="pet-item__mod-buttons">
-        <button class="button  is-light is-info" onclick="editPetClickHandler(this)">Editar</button>
+        <button class="button   is-info" onclick="editPetClickHandler(this)">Editar</button>
         <button class="button   is-danger" onclick="removePetClickHandler(this)">Deletar</button>
       </div>`;
 
@@ -90,6 +90,8 @@ function resetElementAnimation(element) {
 }
 
 function showNewPetPopup() {
+  newPetPopup.style.display = "";
+
   newPetPopup.style.animation = "show-popup .25s forwards";
   resetElementAnimation(newPetPopup);
 }
@@ -97,6 +99,8 @@ function showNewPetPopup() {
 function hideNewPetPopup() {
   newPetPopup.style.animation = "hide-popup .25s forwards";
   resetElementAnimation(newPetPopup);
+
+  setTimeout(() => (newPetPopup.style.display = "none"), 250);
 }
 
 const pets = [];
