@@ -10,11 +10,19 @@ function createPetElement(pet) {
         <span>${type}</span>
       </div>
       <div class="pet-item__mod-buttons">
-        <button>edit</button>
+        <button onclick="editPetClickHandler(this)">edit</button>
         <button onclick="removePetClickHandler(this)">delete</button>
       </div>`;
 
   return petElement;
+}
+
+function editPetClickHandler(editButton) {
+  const petElement = editButton.parentElement.parentElement;
+  const pet = pets[petElement.id];
+
+  popupTitle.innerText = "Editar PetAmigo";
+  addPetButton.onclick = () => editPetPopupClickHandler(petElement.id);
 }
 
 function removePetClickHandler(deleteButton) {
@@ -23,12 +31,35 @@ function removePetClickHandler(deleteButton) {
   pets.slice(petElement.id);
 }
 
-function addPetClickHandler() {
-  const pet = {
+function getPetFromInputs() {
+  return {
     name: petNameInput.value,
     owner_contact: petOwnerContactInput.value,
     type: petTypeSelect.value,
   };
+}
+
+function editPetPopupClickHandler(petId) {
+  const { name, owner_contact, type } = getPetFromInputs();
+  const petElement = pets[petId].element;
+  const petInfos = petElement.children.item(0).children;
+
+  petInfos.item(0).innerText = name;
+  petInfos.item(1).innerText = owner_contact;
+  petInfos.item(2).innerText = type;
+
+  pets[petId] = {
+    name,
+    owner_contact,
+    type,
+    element: petElement,
+  };
+
+  console.log(pets);
+}
+
+function addPetPopupClickHandler() {
+  const pet = getPetFromInputs();
 
   const petElement = createPetElement(pet);
   petElement.id = pets.length;
@@ -51,4 +82,6 @@ const petOwnerContactInput = document.getElementById(
 const petTypeSelect = document.getElementById("new-pet-popup__type");
 
 const addPetButton = document.getElementById("new-pet-popup__add-pet");
-addPetButton.onclick = addPetClickHandler;
+addPetButton.onclick = addPetPopupClickHandler;
+
+const popupTitle = document.getElementById("new-pet-popup__title");
