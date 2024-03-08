@@ -23,7 +23,9 @@ function editPetClickHandler(editButton) {
 
   popupTitle.innerText = "Editar PetAmigo";
   addPetButton.innerText = "Salvar PetAmigo";
-  addPetButton.onclick = () => editPetPopupClickHandler(petElement.id);
+  addPetButton.addEventListener("click", () =>
+    editPetPopupClickHandler(petElement.id)
+  );
 
   showNewPetPopup();
 }
@@ -84,7 +86,7 @@ function addNewPetClickHandler() {
   popupTitle.innerText = "Adicionar PetAmigo";
 
   addPetButton.innerText = "Adicionar PetAmigo";
-  addPetButton.onclick = addPetPopupClickHandler;
+  addPetButton.addEventListener("click", addPetPopupClickHandler);
 
   showNewPetPopup();
 }
@@ -117,7 +119,13 @@ const petOwnerContactInput = document.getElementById(
 const petTypeSelect = document.getElementById("new-pet-popup__type");
 
 const addPetButton = document.getElementById("new-pet-popup__add-pet");
-addPetButton.onclick = addPetPopupClickHandler;
+addPetButton.addEventListener("click", addPetPopupClickHandler);
 
 const newPetPopup = document.getElementById("new-pet-popup");
 const popupTitle = newPetPopup.children.item(0);
+
+const addPetMobileButton = document.getElementById("add-pet-mobile-button");
+addPetMobileButton.addEventListener("click", addNewPetClickHandler);
+
+const addPetDesktopButton = document.getElementById("add-pet-desktop-button");
+addPetButton.addEventListener("click", addNewPetClickHandler);
