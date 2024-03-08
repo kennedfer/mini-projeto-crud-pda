@@ -110,7 +110,6 @@ function showNewPetPopup() {
 }
 
 function hideNewPetPopup() {
-  console.log("hide");
   newPetPopup.style.animation = "hide-popup .25s forwards";
   resetElementAnimation(newPetPopup);
 
@@ -133,7 +132,7 @@ const newPetPopup = document.getElementById("new-pet-popup");
 const popupTitle = newPetPopup.children.item(0);
 
 const addPetMobileButton = document.getElementById("add-pet-mobile-button");
-addPetMobileButton.addEventListener("click", addNewPetClickHandler);
+addPetMobileButton.onclick, addNewPetClickHandler;
 
 const addPetDesktopButton = document.getElementById("add-pet-desktop-button");
-addPetButton.addEventListener("click", addNewPetClickHandler);
+addPetButton.onclick, addNewPetClickHandler;
