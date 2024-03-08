@@ -29,9 +29,13 @@ function editPetClickHandler(editButton) {
 }
 
 function removePetClickHandler(deleteButton) {
-  const petElement = deleteButton.parentElement.parentElement;
-  petList.removeChild(petElement);
-  pets.slice(petElement.id);
+  const canDelete = confirm("O pet será removido, tem certeza?");
+
+  if (canDelete) {
+    const petElement = deleteButton.parentElement.parentElement;
+    petList.removeChild(petElement);
+    pets.slice(petElement.id);
+  }
 }
 
 function getPetFromInputs() {
