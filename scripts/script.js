@@ -25,7 +25,6 @@ function editPetClickHandler(editButton) {
   addPetButton.innerText = "Salvar PetAmigo";
   addPetButton.onclick = () => editPetPopupClickHandler(petElement.id);
 
-  console.log("to no edirt");
   showNewPetPopup();
 }
 
@@ -38,7 +37,6 @@ function addNewPetClickHandler() {
   showNewPetPopup();
 }
 
-//EDITAR ISSO TAMBEM
 function removePetClickHandler(deleteButton) {
   const canDelete = confirm("O pet será removido, tem certeza?");
 
@@ -46,8 +44,6 @@ function removePetClickHandler(deleteButton) {
     const petElement = deleteButton.parentElement.parentElement;
     petList.removeChild(petElement);
     pets.splice(petElement.id, 1);
-
-    console.log(pets);
   }
 }
 
@@ -64,24 +60,23 @@ function findPetIndexByPetId(petId) {
 }
 
 function editPetPopupClickHandler(petElementId) {
-  const { name, owner_contact, type, id } = getPetFromInputs();
-  const petId = findPetIndexByPetId(petElementId);
-  const petElement = pets[petId].element;
+  const { name, owner_contact, type } = getPetFromInputs();
+  const petIndex = findPetIndexByPetId(petElementId);
+  const petElement = pets[petIndex].element;
   const petInfos = petElement.children.item(0).children;
 
   petInfos.item(0).innerText = name;
   petInfos.item(1).innerText = owner_contact;
   petInfos.item(2).innerText = type;
 
-  pets[petId] = {
+  pets[petIndex] = {
     name,
     owner_contact,
     type,
-    id,
+    id: pets[petIndex].id,
     element: petElement,
   };
 
-  console.log("to no edit");
   hideNewPetPopup();
 }
 
@@ -98,7 +93,8 @@ function addPetPopupClickHandler() {
   pets.push(pet);
 
   petList.appendChild(petElement);
-  console.log("tonocreate");
+
+  console.log(pets);
   hideNewPetPopup();
 }
 
@@ -114,6 +110,7 @@ function showNewPetPopup() {
 }
 
 function hideNewPetPopup() {
+  console.log("hide");
   newPetPopup.style.animation = "hide-popup .25s forwards";
   resetElementAnimation(newPetPopup);
 
