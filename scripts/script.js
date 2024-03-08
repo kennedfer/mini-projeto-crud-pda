@@ -22,7 +22,10 @@ function editPetClickHandler(editButton) {
   const pet = pets[petElement.id];
 
   popupTitle.innerText = "Editar PetAmigo";
+  addPetButton.innerText = "Salvar PetAmigo";
   addPetButton.onclick = () => editPetPopupClickHandler(petElement.id);
+
+  showNewPetPopup();
 }
 
 function removePetClickHandler(deleteButton) {
@@ -55,7 +58,7 @@ function editPetPopupClickHandler(petId) {
     element: petElement,
   };
 
-  console.log(pets);
+  hideNewPetPopup();
 }
 
 function addPetPopupClickHandler() {
@@ -70,6 +73,30 @@ function addPetPopupClickHandler() {
   });
 
   petList.appendChild(petElement);
+  hideNewPetPopup();
+}
+
+function addNewPetClickHandler() {
+  popupTitle.innerText = "Adicionar PetAmigo";
+
+  addPetButton.innerText = "Adicionar PetAmigo";
+  addPetButton.onclick = addPetPopupClickHandler;
+
+  showNewPetPopup();
+}
+
+function resetElementAnimation(element) {
+  element.style.offsetHeight;
+}
+
+function showNewPetPopup() {
+  newPetPopup.style.animation = "show-popup .25s forwards";
+  resetElementAnimation(newPetPopup);
+}
+
+function hideNewPetPopup() {
+  newPetPopup.style.animation = "hide-popup .25s forwards";
+  resetElementAnimation(newPetPopup);
 }
 
 const pets = [];
@@ -84,4 +111,5 @@ const petTypeSelect = document.getElementById("new-pet-popup__type");
 const addPetButton = document.getElementById("new-pet-popup__add-pet");
 addPetButton.onclick = addPetPopupClickHandler;
 
-const popupTitle = document.getElementById("new-pet-popup__title");
+const newPetPopup = document.getElementById("new-pet-popup");
+const popupTitle = newPetPopup.children.item(0);

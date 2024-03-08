@@ -12,13 +12,13 @@
     <header>
       <h1>Meus PetAmigos</h1>
       <div>
-        <button>Adicionar novo Amigo</button>
+        <button onclick="addNewPetClickHandler()">Adicionar novo Amigo</button>
       </div>
     </header>
     <main>
       <ul id="pet-list" class="pet-list"></ul>
     </main>
-    <div class="new-pet-popup">
+    <div id="new-pet-popup" class="new-pet-popup">
       <h3 id="new-pet-popup__title">Novo PetAmigo</h3>
       <label for="new-pet-popup__name">Nome do pet:</label>
       <input type="text" name="" id="new-pet-popup__name" />

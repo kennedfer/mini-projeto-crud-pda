@@ -33,6 +33,13 @@ h3 {
   translate: -50% -50%;
   top: 50%;
   left: 50%;
+
+  opacity: 0;
+
+  /* animation-name: show-popup;
+  animation-duration: 1s; */
+
+  animation-fill-mode: forwards;
 }
 
 .pet-list {
@@ -48,7 +55,33 @@ h3 {
 
 .pet-item__infos {
   display: flex;
-  justify-content: space-evenly;
 
   flex-grow: 1;
+}
+
+.pet-item__infos > span {
+  flex-grow: 1;
+  text-align: center;
+
+  border: 1px solid wheat;
+}
+
+@keyframes show-popup {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hide-popup {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
