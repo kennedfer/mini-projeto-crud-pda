@@ -10,8 +10,8 @@ function createPetElement(pet) {
         <span>${type}</span>
       </div>
       <div class="pet-item__mod-buttons">
-        <button onclick="editPetClickHandler(this)">edit</button>
-        <button onclick="removePetClickHandler(this)">delete</button>
+        <button class="button  is-light is-info" onclick="editPetClickHandler(this)">Editar</button>
+        <button class="button   is-danger" onclick="removePetClickHandler(this)">Deletar</button>
       </div>`;
 
   return petElement;

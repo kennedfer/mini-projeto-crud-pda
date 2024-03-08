@@ -3,7 +3,7 @@ header {
   justify-content: space-between;
 
   padding: 10px;
-  background-color: rgb(218, 218, 218);
+  background-color: rgb(243, 243, 243);
 }
 
 label {
@@ -36,9 +36,6 @@ h3 {
 
   opacity: 0;
 
-  /* animation-name: show-popup;
-  animation-duration: 1s; */
-
   animation-fill-mode: forwards;
 }
 
@@ -54,16 +51,14 @@ h3 {
 }
 
 .pet-item__infos {
-  display: flex;
-
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   flex-grow: 1;
 }
 
 .pet-item__infos > span {
   flex-grow: 1;
   text-align: center;
-
-  border: 1px solid wheat;
 }
 
 @keyframes show-popup {
