@@ -42,11 +42,13 @@ h3 {
 
 .pet-list__pet-item {
   display: flex;
-  justify-content: space-between;
 
   padding: 10px;
 }
 
 .pet-item__infos {
   display: flex;
+  justify-content: space-evenly;
+
+  flex-grow: 1;
 }

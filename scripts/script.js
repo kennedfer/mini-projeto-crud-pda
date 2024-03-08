@@ -26,9 +26,15 @@ function addPetClickHandler() {
   };
 
   const petElement = createPetElement(pet);
+  pets.push({
+    ...pet,
+    element: petElement,
+  });
+
   petList.appendChild(petElement);
 }
 
+const pets = [];
 const petList = document.getElementById("pet-list");
 
 const petNameInput = document.getElementById("new-pet-popup__name");
