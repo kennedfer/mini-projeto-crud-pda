@@ -19,17 +19,26 @@ function createPetElement(pet) {
 
 function editPetClickHandler(editButton) {
   const petElement = editButton.parentElement.parentElement;
-  const pet = pets[petElement.id];
+  // const pet = pets[petElement.id];
 
   popupTitle.innerText = "Editar PetAmigo";
   addPetButton.innerText = "Salvar PetAmigo";
-  addPetButton.addEventListener("click", () =>
-    editPetPopupClickHandler(petElement.id)
-  );
+  addPetButton.onclick = () => editPetPopupClickHandler(petElement.id);
+
+  console.log("to no edirt");
+  showNewPetPopup();
+}
+
+function addNewPetClickHandler() {
+  popupTitle.innerText = "Adicionar PetAmigo";
+
+  addPetButton.innerText = "Adicionar PetAmigo";
+  addPetButton.onclick = addPetPopupClickHandler;
 
   showNewPetPopup();
 }
 
+//EDITAR ISSO TAMBEM
 function removePetClickHandler(deleteButton) {
   const canDelete = confirm("O pet será removido, tem certeza?");
 
@@ -50,8 +59,13 @@ function getPetFromInputs() {
   };
 }
 
-function editPetPopupClickHandler(petId) {
-  const { name, owner_contact, type } = getPetFromInputs();
+function findPetIndexByPetId(petId) {
+  return pets.indexOf(pets.find((pet) => pet.id == petId));
+}
+
+function editPetPopupClickHandler(petElementId) {
+  const { name, owner_contact, type, id } = getPetFromInputs();
+  const petId = findPetIndexByPetId(petElementId);
   const petElement = pets[petId].element;
   const petInfos = petElement.children.item(0).children;
 
@@ -63,9 +77,11 @@ function editPetPopupClickHandler(petId) {
     name,
     owner_contact,
     type,
+    id,
     element: petElement,
   };
 
+  console.log("to no edit");
   hideNewPetPopup();
 }
 
@@ -73,24 +89,17 @@ function addPetPopupClickHandler() {
   const pet = getPetFromInputs();
 
   const petElement = createPetElement(pet);
-  petElement.id = pets.length;
+  const petId = "pet" + Date.now(); //Garante um id unico com base no tempo
 
-  pets.push({
-    ...pet,
-    element: petElement,
-  });
+  petElement.id = petId;
+  pet.id = petId;
+  pet.element = petElement;
+
+  pets.push(pet);
 
   petList.appendChild(petElement);
+  console.log("tonocreate");
   hideNewPetPopup();
-}
-
-function addNewPetClickHandler() {
-  popupTitle.innerText = "Adicionar PetAmigo";
-
-  addPetButton.innerText = "Adicionar PetAmigo";
-  addPetButton.addEventListener("click", addPetPopupClickHandler);
-
-  showNewPetPopup();
 }
 
 function resetElementAnimation(element) {
@@ -121,7 +130,7 @@ const petOwnerContactInput = document.getElementById(
 const petTypeSelect = document.getElementById("new-pet-popup__type");
 
 const addPetButton = document.getElementById("new-pet-popup__add-pet");
-addPetButton.addEventListener("click", addPetPopupClickHandler);
+addPetButton.onclick = addPetPopupClickHandler;
 
 const newPetPopup = document.getElementById("new-pet-popup");
 const popupTitle = newPetPopup.children.item(0);
