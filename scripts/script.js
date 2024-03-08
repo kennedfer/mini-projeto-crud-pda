@@ -1,9 +1,9 @@
 function createPetElement(pet) {
   const { name, owner_contact, type } = pet;
 
-  const petElement = document.createElement("div");
+  const petElement = document.createElement("li");
+  petElement.className = "pet-list__pet-item";
   petElement.innerHTML = `
-    <li class="pet-list__pet-item">
       <div class="pet-item__infos">
         <span>${name}</span>
         <span>${owner_contact}</span>
@@ -11,11 +11,16 @@ function createPetElement(pet) {
       </div>
       <div class="pet-item__mod-buttons">
         <button>edit</button>
-        <button>delete</button>
-      </div>
-    </li>`;
+        <button onclick="removePetClickHandler(this)">delete</button>
+      </div>`;
 
   return petElement;
+}
+
+function removePetClickHandler(deleteButton) {
+  const petElement = deleteButton.parentElement.parentElement;
+  petList.removeChild(petElement);
+  pets.slice(petElement.id);
 }
 
 function addPetClickHandler() {
@@ -26,6 +31,8 @@ function addPetClickHandler() {
   };
 
   const petElement = createPetElement(pet);
+  petElement.id = pets.length;
+
   pets.push({
     ...pet,
     element: petElement,
