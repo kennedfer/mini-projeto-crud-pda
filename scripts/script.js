@@ -151,7 +151,7 @@ const newPetPopup = document.getElementById("new-pet-popup");
 const popupTitle = newPetPopup.children.item(0);
 
 const addPetMobileButton = document.getElementById("add-pet-mobile-button");
-addPetMobileButton.onclick, addNewPetClickHandler;
+addPetMobileButton.onclick = addNewPetClickHandler;
 
 const addPetDesktopButton = document.getElementById("add-pet-desktop-button");
-addPetButton.onclick, addNewPetClickHandler;
+addPetDesktopButton.onclick = addNewPetClickHandler;
