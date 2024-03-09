@@ -1,6 +1,4 @@
-function createPetElement(pet) {
-  const { name, owner_contact, type } = pet;
-
+function createPetElement({ name, owner_contact, type }) {
   const petElement = document.createElement("li");
 
   petElement.className = "pet-list__pet-item";
