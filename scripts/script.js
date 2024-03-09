@@ -2,6 +2,7 @@ function createPetElement(pet) {
   const { name, owner_contact, type } = pet;
 
   const petElement = document.createElement("li");
+
   petElement.className = "pet-list__pet-item";
   petElement.innerHTML = `
       <div class="pet-item__infos">
@@ -17,6 +18,12 @@ function createPetElement(pet) {
   return petElement;
 }
 
+function changeInputsValues(nameValue, ownerContactValue, typeValue) {
+  petNameInput.value = nameValue;
+  petOwnerContactInput.value = ownerContactValue;
+  petTypeSelect.value = typeValue;
+}
+
 function findPetIndexByPetId(petId) {
   return pets.indexOf(pets.find((pet) => pet.id == petId));
 }
@@ -27,9 +34,7 @@ function editPetClickHandler(editButton) {
   const petIndex = findPetIndexByPetId(petElement.id);
   const pet = pets[petIndex];
 
-  petNameInput.value = pet.name;
-  petOwnerContactInput.value = pet.owner_contact;
-  petTypeSelect.value = pet.type;
+  changeInputsValues(pet.name, pet.owner_contact, pet.type);
 
   popupTitle.innerText = "Editar PetAmigo";
   addPetButton.innerText = "Salvar PetAmigo";
@@ -41,9 +46,7 @@ function editPetClickHandler(editButton) {
 function addNewPetClickHandler() {
   popupTitle.innerText = "Adicionar PetAmigo";
 
-  petNameInput.value = "";
-  petOwnerContactInput.value = "";
-  petTypeSelect.value = "Cachorro";
+  changeInputsValues("", "", "Cachorro");
 
   addPetButton.innerText = "Adicionar PetAmigo";
   addPetButton.onclick = addPetPopupClickHandler;
